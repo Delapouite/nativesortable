@@ -81,11 +81,12 @@ nativesortable = (function() {
 
     function dragenterData(element, val) {
         if (arguments.length === 1) {
-            return parseInt(element.getAttribute('data-child-dragenter'), 10) || 0;
-        } else if (!val) {
-            element.removeAttribute('data-child-dragenter');
+            return parseInt(element.dataset.childDragenter, 10) || 0;
+        }
+        if (!val) {
+            delete element.dataset.childDragenter;
         } else {
-            element.setAttribute('data-child-dragenter', Math.max(0, val));
+            element.dataset.childDragenter = Math.max(0, val);
         }
     }
 
