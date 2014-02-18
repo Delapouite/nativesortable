@@ -11,9 +11,15 @@
  * @author Brian Grinstead
  * @license MIT License
  */
-
-nativesortable = (function() {
-
+(function(definition) {
+    if (typeof exports === 'object') {
+        module.exports = definition();
+    } else if (typeof define === 'function' && define.amd) {
+        define([], definition);
+    } else {
+        window.nativesortable = definition();
+    }
+})(function() {
     var supportsTouch = ('ontouchstart' in window) || (window.DocumentTouch && document instanceof DocumentTouch);
     var supportsDragAndDrop = !supportsTouch && (function() {
         var div = document.createElement('div');
@@ -285,4 +291,4 @@ nativesortable = (function() {
             }
         });
     };
-}());
+});
