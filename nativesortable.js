@@ -221,7 +221,7 @@ nativesortable = (function() {
                     target = document.elementFromPoint(e.pageX - document.body.scrollLeft, e.pageY - document.body.scrollTop);
                 }
 
-                if (target.classList.contains(CHILD_CLASS)) {
+                if (target.classList && target.classList.contains(CHILD_CLASS)) {
                     fn.apply(target, [e]);
                 } else if (target !== element) {
                     // If a child is initiating the event or ending it, then use the container as context for the callback.
