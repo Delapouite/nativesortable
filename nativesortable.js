@@ -245,44 +245,44 @@
         function addFakeDragHandlers() {
             if (!supportsDragAndDrop) {
                 if (supportsTouch) {
-                    element.addEventListener('touchmove', handleTouchMove, false);
+                    element.addEventListener('touchmove', handleTouchMove);
                 } else {
-                    element.addEventListener('mouseover', handleDragEnter, false);
-                    element.addEventListener('mouseout', handleDragLeave, false);
+                    element.addEventListener('mouseover', handleDragEnter);
+                    element.addEventListener('mouseout', handleDragLeave);
                 }
 
-                element.addEventListener(supportsTouch ? 'touchend' : 'mouseup', handleDrop, false);
-                document.addEventListener(supportsTouch ? 'touchend' : 'mouseup', handleDragEnd, false);
-                document.addEventListener('selectstart', prevent, false);
+                element.addEventListener(supportsTouch ? 'touchend' : 'mouseup', handleDrop);
+                document.addEventListener(supportsTouch ? 'touchend' : 'mouseup', handleDragEnd);
+                document.addEventListener('selectstart', prevent);
             }
         }
 
         function removeFakeDragHandlers() {
             if (!supportsDragAndDrop) {
                 if (supportsTouch) {
-                    element.removeEventListener('touchmove', handleTouchMove, false);
+                    element.removeEventListener('touchmove', handleTouchMove);
                 } else {
-                    element.removeEventListener('mouseover', handleDragEnter, false);
-                    element.removeEventListener('mouseout', handleDragLeave, false);
+                    element.removeEventListener('mouseover', handleDragEnter);
+                    element.removeEventListener('mouseout', handleDragLeave);
                 }
 
-                element.removeEventListener(supportsTouch ? 'touchend' : 'mouseup', handleDrop, false);
-                document.removeEventListener(supportsTouch ? 'touchend' : 'mouseup', handleDragEnd, false);
-                document.removeEventListener('selectstart', prevent, false);
+                element.removeEventListener(supportsTouch ? 'touchend' : 'mouseup', handleDrop);
+                document.removeEventListener(supportsTouch ? 'touchend' : 'mouseup', handleDragEnd);
+                document.removeEventListener('selectstart', prevent);
             }
         }
 
         if (supportsDragAndDrop) {
-            element.addEventListener('dragstart', handleDragStart, false);
-            element.addEventListener('dragenter', handleDragEnter, false);
-            element.addEventListener('dragleave', handleDragLeave, false);
-            element.addEventListener('drop', handleDrop, false);
-            element.addEventListener('dragover', handleDragOver, false);
-            element.addEventListener('dragend', handleDragEnd, false);
+            element.addEventListener('dragstart', handleDragStart);
+            element.addEventListener('dragenter', handleDragEnter);
+            element.addEventListener('dragleave', handleDragLeave);
+            element.addEventListener('drop', handleDrop);
+            element.addEventListener('dragover', handleDragOver);
+            element.addEventListener('dragend', handleDragEnd);
         } else if (supportsTouch) {
-            element.addEventListener('touchstart', handleDragStart, false);
+            element.addEventListener('touchstart', handleDragStart);
         } else {
-             element.addEventListener('mousedown', handleDragStart, false);
+             element.addEventListener('mousedown', handleDragStart);
         }
 
         [].forEach.call(element.childNodes, function(el) {
